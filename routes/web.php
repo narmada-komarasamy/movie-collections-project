@@ -14,3 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::middleware(['basicAuth'])->group(function () {
+    //All the routes are placed in here
+   Route::get('movies', 'MoviesController@getAllMovies');
+Route::get('movies/{id}', 'MoviesController@getMovieById');
+Route::post('movies', 'MoviesController@addMovie');
+Route::put('movies/{id}', 'MoviesController@updateMovie');
+Route::delete('movies/{id}', 'MoviesController@deleteMovie');
+});
+
+
