@@ -9,7 +9,7 @@ user App\Response;
 class MoviesController extends Controller
 {
 	//List All Movies
-	public function list() {}
+	public function getAllMovies() {}
         $allMovies = \DB::table('data_movies')
         ->select('id', 'title', 'format', 'length', 'release_year', 'rating')
         ->get();
